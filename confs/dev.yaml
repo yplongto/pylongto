@@ -1,0 +1,142 @@
+postgres:
+  host: 10.52.3.159
+  port: 5432
+  username: postgres
+  password: Donghuan@2024
+  database: postgres
+
+mongo:
+  host: 10.52.3.163
+  port: 27017
+  username: sdhuser
+  password: Sdhjk@@2024
+  database: sdh
+  auth_source: sdh
+
+redis:
+  host: 10.52.3.163
+  port: 6379
+  password: Donghuan@2024
+  cache_db: 2
+  startup_nodes: [
+    { host: 10.52.3.156, port: 7100 },
+    { host: 10.52.3.157, port: 7100 },
+    { host: 10.52.3.158, port: 7100 },
+    { host: 10.52.3.156, port: 7200 },
+    { host: 10.52.3.157, port: 7200 },
+    { host: 10.52.3.158, port: 7200 }
+  ]
+
+celery_redis:
+  host: 10.52.3.163
+  port: 6379
+  password: Donghuan@2024
+  cache_db: 1
+  startup_nodes: [ ]
+
+kafka:
+  bootstrap_servers: [ "10.52.3.156:9092","10.52.3.157:9092","10.52.3.158:9092" ]
+  user: sdh_user
+  password: sdhjk_Donghuan2024
+  sasl_mechanism: SCRAM-SHA-512
+  security_protocol: SASL_PLAINTEXT
+
+fdfs:
+  # fast_dfs服务配置
+  connect_timeout: 30
+  network_timeout: 60
+  base_path: /usr/fastdfs/tracker
+  tracker_server: 10.52.3.167:22122
+  log_level: info
+  use_connection_pool: false
+  connection_pool_max_idle_time: 3600
+  load_fdfs_parameters_from_tracker: false
+  use_storage_id: false
+  storage_ids_filename: storage_ids.conf
+  http.tracker_server_port: 6666
+
+go_fastdfs:
+  host: 192.168.30.58
+  port: 8080
+  group: aircon
+  scene: tudi
+
+
+mqtt:
+  host: 10.52.3.156
+  port: 1883
+  user: digital
+  password: Sdhjk123$
+  services: [
+    { "host": "10.52.3.156", "port": 1883, "user": "digital", "password": "Sdhjk123$" },
+    { "host": "10.52.3.157", "port": 1883, "user": "digital", "password": "Sdhjk123$" },
+    { "host": "10.52.3.158", "port": 1883, "user": "digital", "password": "Sdhjk123$" }
+  ]
+
+ftp:
+  host: 10.52.3.170
+  port: 21
+  user: ftpuser
+  password: ZJ12345&*
+  local_dir: /ms
+
+elastic_search:
+  #  # 集群名称
+  #  cluster_name: sdh-es
+  # 节点列表
+  host: [ "http://10.52.3.178:9200/" ]
+  # 账号
+  username: sdh_user
+  # 密码
+  password: Donghuan@2024
+
+mail:
+  # 邮件启用状态 启动：1 未启动：0
+  mail_status: 1
+  #  本地SMTP服务器端口号
+  host: yxzmail.com
+  port: 17277
+  # 用户名
+  user: sdh@zjydshengdonghuan.cn
+  # 授权密码，非登录密码（189邮箱为登录密码）
+  password: Donghuan@2021
+  # 邮箱主题
+  title: 【pylongto平台—登录保护验证】
+  # 发件人
+  sender: sdh@zjydshengdonghuan.cn
+
+
+# 微服务地址
+microservices_url:
+  # 资源
+  resource: rc.cloud.digital.zjgc/py_resource
+  # 综资
+  power_noc: rc.cloud.digital.zjgc/py_power_noc
+  # 用户中心
+  user_center: rc.cloud.digital.zjgc/py_user_center
+  # B接口协议处理服务
+  fsusvr: rc.cloud.digital.zjgc/py_fsusvr
+  # 能耗管理
+  energy: rc.cloud.digital.zjgc/py_energy
+  # 远程维护
+  remote: rc.cloud.digital.zjgc/py_remote
+  # websocket 主服务
+  socket_url: rc.cloud.digital.zjgc/py_websocket
+  # 日志服务
+  log_service: rc.cloud.digital.zjgc/py_log
+  # 短信服务
+  sms_interface: rc.cloud.digital.zjgc/py_smgp
+
+
+common:
+  X_APP_ID: ''
+  X_APP_KEY: ''
+  THRESHOLD: 5
+
+
+release:
+  version: v1.0
+  ios_version: 2.5.7 20190809
+  android_version: 2.6.0 20210913
+  version_release_time: 2025-02-25
+
